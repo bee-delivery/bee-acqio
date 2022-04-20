@@ -1,13 +1,13 @@
 {
-    "name": "beedelivery/laravel-acqio",
+    "name": "beedelivery/bee-acqio",
     "description": "Package for integration with Acqio",
     "keywords": ["acqio", "laravel", "bee"],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Jorzel",
-            "email": "jorzelalves@jorzelalves.com"
+            "name": "Bee Delivery",
+            "email": "suporte@beedelivery.com.br"
         }
     ],
     "minimum-stability": "dev",
