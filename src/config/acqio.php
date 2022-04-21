@@ -11,6 +11,7 @@ return [
     */
     'base_url' => env('ACQIO_BASE_URL'),
     'base_url_auth' =>  env('ACQIO_BASE_URL_AUTH'),
+    'base_url_tokenize' =>  env('ACQIO_BASE_URL_TOKENIZE'),
 
     /*
     |-------------------------------------------------------------

@@ -140,8 +140,8 @@ class Helpers
     public function validateCancelByReference($data)
     {
         $validator = Validator::make($data, [
-            'reference.datetime ' => 'required|string',
-            'reference.id ' => 'required|string'
+            'reference.datetime' => 'required|string',
+            'reference.id' => 'required|string'
         ]);
 
         if ($validator->fails()) {
@@ -184,7 +184,7 @@ class Helpers
         }
     }
 
-        /*
+    /*
      * Validate data for query by reference.
      *
      * @param array $data
@@ -193,8 +193,25 @@ class Helpers
     public function validateQueryByReference($data)
     {
         $validator = Validator::make($data, [
-            'reference.datetime ' => 'required|string',
-            'reference.id ' => 'required|string'
+            'reference.datetime' => 'required|string',
+            'reference.id' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            throw new \Exception($validator->errors()->first());
+        }
+    }
+
+    /*
+     * Validate data for query by reference.
+     *
+     * @param array $data
+     * @return void
+     */
+    public function validateTokenizeCard($data)
+    {
+        $validator = Validator::make($data, [
+            'card_number' => 'required|string:/^([0-9]*)$/'
         ]);
 
         if ($validator->fails()) {
