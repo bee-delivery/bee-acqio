@@ -33,4 +33,9 @@ class Acqio
     {
         return new QueryByReference();
     }
+
+    public function tokenizeCard()
+    {
+        return new TokenizeCard();
+    }
 }
