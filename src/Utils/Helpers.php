@@ -15,14 +15,14 @@ class Helpers
     public function validateWithCardNumber($data)
     {
         $validator = Validator::make($data, [
-            'datetime' => 'required|string:/^([0-9]*)$/',
+            'datetime' => 'required|numeric',
             'referenceId' => 'required|string',
             'installments' => 'required|integer',
             'amountE2' => 'required|integer',
-            'cardNumber' => 'required|string:/^([0-9]*)$/',
+            'cardNumber' => 'required|numeric',
             'cardholderName' => 'required|string',
-            'cardExpirationDateYymm' => 'required|string:/^([0-9]*)$/|max:4',
-            'cvv' => 'required|string:/^([0-9]*)$/',
+            'cardExpirationDateYymm' => 'required|numeric|max:4',
+            'cvv' => 'required|numeric',
             'autoCapture' => 'required|bool',
 
             'purchaseInfo' => 'required|array',
@@ -34,8 +34,8 @@ class Helpers
             'purchaseInfo.billTo.city' => 'required|string',
             'purchaseInfo.billTo.firstName' => 'required|string',
             'purchaseInfo.billTo.lastName' => 'required|string',
-            'purchaseInfo.billTo.phoneNumber' => 'required|string:/^([0-9]*)$/',
-            'purchaseInfo.billTo.postalCode' => 'required|string:/^([0-9]*)$/',
+            'purchaseInfo.billTo.phoneNumber' => 'required|numeric',
+            'purchaseInfo.billTo.postalCode' => 'required|numeric',
 
             'purchaseInfo.shippingTo' => 'required|array',
             'purchaseInfo.shippingTo.address1' => 'required|string',
@@ -45,13 +45,13 @@ class Helpers
             'purchaseInfo.shippingTo.city' => 'required|string',
             'purchaseInfo.shippingTo.firstName' => 'required|string',
             'purchaseInfo.shippingTo.lastName' => 'required|string',
-            'purchaseInfo.shippingTo.phoneNumber' => 'required|string:/^([0-9]*)$/',
-            'purchaseInfo.shippingTo.postalCode' => 'required|string:/^([0-9]*)$/',
+            'purchaseInfo.shippingTo.phoneNumber' => 'required|numeric',
+            'purchaseInfo.shippingTo.postalCode' => 'required|numeric',
 
             'purchaseInfo.email' => 'nullable|email',
             'purchaseInfo.ipAddress' => 'nullable|string',
             'purchaseInfo.fingerprintSessionId' => 'nullable|string',
-            'purchaseInfo.personalIdentification' => 'nullable|string:/^([0-9]*)$/',
+            'purchaseInfo.personalIdentification' => 'nullable|numeric',
 
         ]);
 
@@ -69,14 +69,14 @@ class Helpers
     public function validateWithTokenId($data)
     {
         $validator = Validator::make($data, [
-            'datetime' => 'required|string:/^([0-9]*)$/',
+            'datetime' => 'required|numeric',
             'referenceId' => 'required|string',
             'installments' => 'required|integer',
             'amountE2' => 'required|integer',
             'tokenId' => 'required|string',
             'cardholderName' => 'required|string',
-            'cardExpirationDateYymm' => 'required|string:/^([0-9]*)$/|max:4',
-            'cvv' => 'required|string:/^([0-9]*)$/',
+            'cardExpirationDateYymm' => 'required|numeric|max:4',
+            'cvv' => 'required|numeric',
             'autoCapture' => 'required|bool',
 
             'purchaseInfo' => 'required|array',
@@ -88,8 +88,8 @@ class Helpers
             'purchaseInfo.billTo.city' => 'required|string',
             'purchaseInfo.billTo.firstName' => 'required|string',
             'purchaseInfo.billTo.lastName' => 'required|string',
-            'purchaseInfo.billTo.phoneNumber' => 'required|string:/^([0-9]*)$/',
-            'purchaseInfo.billTo.postalCode' => 'required|string:/^([0-9]*)$/',
+            'purchaseInfo.billTo.phoneNumber' => 'required|numeric',
+            'purchaseInfo.billTo.postalCode' => 'required|numeric',
 
             'purchaseInfo.shippingTo' => 'required|array',
             'purchaseInfo.shippingTo.address1' => 'required|string',
@@ -99,13 +99,13 @@ class Helpers
             'purchaseInfo.shippingTo.city' => 'required|string',
             'purchaseInfo.shippingTo.firstName' => 'required|string',
             'purchaseInfo.shippingTo.lastName' => 'required|string',
-            'purchaseInfo.shippingTo.phoneNumber' => 'required|string:/^([0-9]*)$/',
-            'purchaseInfo.shippingTo.postalCode' => 'required|string:/^([0-9]*)$/',
+            'purchaseInfo.shippingTo.phoneNumber' => 'required|numeric',
+            'purchaseInfo.shippingTo.postalCode' => 'required|numeric',
 
             'purchaseInfo.email' => 'nullable|email',
             'purchaseInfo.ipAddress' => 'nullable|string',
             'purchaseInfo.fingerprintSessionId' => 'nullable|string',
-            'purchaseInfo.personalIdentification' => 'nullable|string:/^([0-9]*)$/',
+            'purchaseInfo.personalIdentification' => 'nullable|numeric',
 
         ]);
 
@@ -211,7 +211,7 @@ class Helpers
     public function validateTokenizeCard($data)
     {
         $validator = Validator::make($data, [
-            'card_number' => 'required|string:/^([0-9]*)$/'
+            'card_number' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {

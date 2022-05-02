@@ -10,7 +10,6 @@ class Connection
     protected $accessToken;
     protected $baseUrl;
     protected $baseUrlAuth;
-    protected $baseUrlTokenize;
     protected $client_id;
     protected $client_secret;
 
@@ -30,7 +29,6 @@ class Connection
         
         $this->baseUrl = config('acqio.base_url');
         $this->baseUrlAuth =config('acqio.base_url_auth');
-        $this->baseUrlTokenize = config('acqio.base_url_tokenize');
         $this->client_id = config('acqio.client_id');
         $this->client_secret = config('acqio.client_secret');        
 
@@ -83,35 +81,6 @@ class Connection
             ])
                 ->withToken($this->accessToken)
                 ->post($this->baseUrl . $url, $params);
-
-            return [
-                'code' => $response->getStatusCode(),
-                'response' => json_decode($response->getBody(), true)
-            ];
-        } catch (\Exception $e) {
-            return [
-                'code' => $e->getCode(),
-                'response' => $e->getMessage()
-            ];
-        }
-    }
-
-        /*
-     * Realiza uma solicitação post para tokenizar o cartão utilizando
-     * Bearer Authentication.
-     *
-     * @param string $url
-     * @param array|null $params
-     * @return array
-     */
-    public function postTokenize($url, $params = array())
-    {
-        try {
-            $response = Http::withHeaders([
-                'Accept' => 'application/json'
-            ])
-                ->withToken($this->accessToken)
-                ->post($this->baseUrlTokenize . $url, $params);
 
             return [
                 'code' => $response->getStatusCode(),
