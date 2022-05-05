@@ -21,7 +21,7 @@ class Helpers
             'amountE2' => 'required|integer',
             'cardNumber' => 'required|numeric',
             'cardholderName' => 'required|string',
-            'cardExpirationDateYymm' => 'required|numeric|max:4',
+            'cardExpirationDateYymm' => 'required|string|max:4',
             'cvv' => 'required|numeric',
             'autoCapture' => 'required|bool',
 
@@ -75,7 +75,7 @@ class Helpers
             'amountE2' => 'required|integer',
             'tokenId' => 'required|string',
             'cardholderName' => 'required|string',
-            'cardExpirationDateYymm' => 'required|numeric|max:4',
+            'cardExpirationDateYymm' => 'required|string|max:4',
             'cvv' => 'required|numeric',
             'autoCapture' => 'required|bool',
 
