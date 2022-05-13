@@ -211,7 +211,8 @@ class Helpers
     public function validateTokenizeCard($data)
     {
         $validator = Validator::make($data, [
-            'card_number' => 'required|numeric'
+            'card_number'   => 'required|numeric',
+            'client_id'     => 'required|string'
         ]);
 
         if ($validator->fails()) {

@@ -19,9 +19,10 @@ class TokenizeCard
     public function tokenizeCard($params)
     {
         try {
-            $this->helpers->validateTokenizeCard($params);
+            $data = array_merge($params, ['client_id' => config('acqio.client_id')]);
+            $this->helpers->validateTokenizeCard($data);
             
-            return $this->http->post('/api/tokenize-card', $params);
+            return $this->http->post('/api/tokenize-card', $data);
         } catch (\Exception $e) {
             return [
                 'code' => $e->getCode(),
