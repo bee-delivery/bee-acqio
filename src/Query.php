@@ -16,12 +16,12 @@ class Query
         $this->helpers = new Helpers();
     }
 
-    public function cancel($transactionId)
+    public function get($transactionId)
     {
         try {
             $this->helpers->validateQuery(['transactionId' => $transactionId]);
 
-            return $this->http->put('/api/querytransaction/' . $transactionId);
+            return $this->http->get('/api/querytransaction/' . $transactionId);
         } catch (\Exception $e) {
             return [
                 'code' => $e->getCode(),
